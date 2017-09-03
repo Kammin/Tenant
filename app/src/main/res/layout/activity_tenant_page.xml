@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorControlHighlight"
+    tools:context="kamin.com.tenant.HomePage">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="8dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvApplicant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/text_horizontal_margin"
+                android:layout_marginRight="@dimen/text_horizontal_margin"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/transparent"
+                android:text="Applicant contact information"
+                android:textSize="14sp" />
+
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/grid_margin"
+                android:columnCount="2"
+                android:columnOrderPreserved="false"
+                android:gravity="center"
+                android:rowCount="15">
+
+                <TextView
+                    android:id="@+id/tvFirstName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="FirstName"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etFirstName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textPersonName"
+                    android:text="Serge"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvLastName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+
+                    android:text="LastName"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etLastName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textPersonName"
+                    android:text="Travnikov"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvAddress1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+
+                    android:text="Address1"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etAddress1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textPersonName"
+                    android:text="2154 W Broadway Str"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvAddress2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="Address2"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etAddress2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textPersonName"
+                    android:text="123"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvCity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+
+                    android:text="City"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etCity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textPersonName"
+                    android:text="Chicago"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvDateBirth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="DateBirth"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etDateBirth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textPersonName"
+                    android:text="1/1/1970"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvDriverLicense"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="DriverLicense"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etDriverLicense"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textPersonName"
+                    android:text="T1234567890"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="Email"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textPersonName"
+                    android:text="stravnikov@gmail.com"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="Password"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textPersonName"
+                    android:text="12345"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="Phone"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textPersonName"
+                    android:text="3123307777"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/SSN"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="SSN"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etSSN"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textPersonName"
+                    android:text="274308888"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvState"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="State"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etState"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textPersonName"
+                    android:text="IL"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvTenant_ID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="Tenant ID"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etTenant_ID"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textPersonName"
+                    android:text="0"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvUsername"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="Username"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textPersonName"
+                    android:text="travkin"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvZipCode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="ZipCode"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etZipCode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textPersonName"
+                    android:text="60606"
+                    android:textSize="14sp" />
+
+
+            </GridLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_weight="0.5"
+                    android:gravity="left"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btClear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.50"
+                        android:text="Clear" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btSave"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Save" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
