@@ -3,6 +3,9 @@ package kamin.com.tenant;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +34,7 @@ public class TenantPage extends AppCompatActivity {
                 finish();
             }
         });
+        setListeners();
     }
 
 
@@ -68,5 +72,28 @@ public class TenantPage extends AppCompatActivity {
         etTenant_ID = (EditText) findViewById(R.id.etTenant_ID);
         etUsername = (EditText) findViewById(R.id.etUsername);
         etZipCode = (EditText) findViewById(R.id.etZipCode);
+    }
+
+    void setListeners(){
+        etSSN.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.d("TextWatcher before "," charSequence "+charSequence+"  start "+i+"  count "+i1+"  after "+i2);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Log.d("TextWatcher Changed "," charSequence "+charSequence+"  start "+i+"  count "+i1+"  after "+i2);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                Log.d("TextWatcher after ","editable "+ editable.toString());
+                etSSN.removeTextChangedListener(this);
+
+                etSSN.addTextChangedListener(this);
+            }
+        });
     }
 }
