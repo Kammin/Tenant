@@ -3,6 +3,20 @@
     <dimen name="text_horizontal_margin">5dp</dimen>
     <dimen name="grid_margin">10dp</dimen>
     <dimen name="text_vertical_margin">5dp</dimen>
-
+    username, password, firstName, lastName, address1, address2, city, state, zipCode, phone, email, driverLicense, dateBirth, ssn;
+    <integer  name="usernameLentgh">10</integer >
+    <integer name="passwordLentgh">10</integer >
+    <integer name="firstNameLentgh">15</integer >
+    <integer name="lastNameLentgh">15</integer >
+    <integer name="address1Lentgh">20</integer >
+    <integer name="address2Lentgh">30</integer >
+    <integer name="cityLentgh">15</integer >
+    <integer name="stateLentgh">2</integer >
+    <integer name="zipCodeLentgh">6</integer >
+    <integer name="phoneLentgh">10</integer >
+    <integer name="emailLentgh">20</integer >
+    <integer name="driverLicenseLentgh">10</integer >
+    <integer name="dateBirthLentgh">10</integer >
+    <integer name="ssnLentgh">11</integer >
 
 </resources>

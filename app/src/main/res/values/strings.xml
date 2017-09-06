@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Tenant</string>
+    <string name="FirstName_ERROR">FirstName cannot be empty!</string>
+    <string name="LastName_ERROR">LastName cannot be empty!</string>
+    <string name="Address1_ERROR">Address 1 cannot be empty!</string>
+    <string name="Address2_ERROR">Address 2 cannot be empty!</string>
+    <string name="City_ERROR">City cannot be empty!</string>
+    <string name="DateBirth_ERROR">Date of birthday cannot be empty!</string>
+    <string name="DriverLicense_ERROR">Driver License cannot be empty!</string>
+    <string name="Email_ERROR">Email cannot be empty!</string>
+    <string name="Password_ERROR">Password cannot be empty!</string>
+    <string name="Phone_ERROR">Phone cannot be empty!</string>
+    <string name="SSN_ERROR">SSN cannot be empty!</string>
+    <string name="State_ERROR">State cannot be empty!</string>
+    <string name="Username_ERROR">Username cannot be empty!</string>
+    <string name="ZipCode_ERROR">ZipCode cannot be empty!</string>
+
+
+
 </resources>

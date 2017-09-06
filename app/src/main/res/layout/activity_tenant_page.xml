@@ -70,6 +70,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
+                    android:focusedByDefault="false"
                     android:inputType="textPersonName"
                     android:text="Serge"
                     android:textSize="14sp" />
@@ -363,8 +364,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:inputType="textPersonName"
-                    android:text="274308888"
+                    android:maxLength="11"
                     android:textSize="14sp" />
 
                 <TextView
@@ -396,34 +396,6 @@
                     android:text="IL"
                     android:textSize="14sp" />
 
-                <TextView
-                    android:id="@+id/tvTenant_ID"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@android:color/transparent"
-                    android:text="Tenant ID"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/etTenant_ID"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@color/colorWhite"
-                    android:inputType="textPersonName"
-                    android:text="0"
-                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tvUsername"
