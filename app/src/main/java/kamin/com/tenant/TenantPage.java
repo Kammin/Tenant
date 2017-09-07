@@ -4,10 +4,14 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class TenantPage extends AppCompatActivity {
     EditText etAddress1, etAddress2, etCity, etDateBirth, etDriverLicense, etEmail, etFirstName, etLastName, etPassword, etPhone, etSSN, etState, etUsername, etZipCode;
@@ -32,7 +36,8 @@ public class TenantPage extends AppCompatActivity {
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkEnter();
+                if(checkEnter())
+                    update ();
             }
         });
 
@@ -248,14 +253,35 @@ public class TenantPage extends AppCompatActivity {
     }
 
     public static boolean isValidDateBirth(String dateBirth) {
-        boolean valid = true;
+        boolean valid=true;
         int count = 0;
-        while((valid = true)&&(count < dateBirth.length())){
-            if((!(((count==0)||(count==1)||(count==3)||(count==4)||(count==6)||(count==7)||(count==8)||(count==9))&&(dateBirth.substring(count, count+1).matches("[0-9]"))))||
-                    (!(((count==3)||(count==5))&&(dateBirth.substring(count, count+1).matches("/")))))
-                return false;
+        while (valid && (count < dateBirth.length())) {
+            if ((count == 0) || (count == 1) || (count == 3) || (count == 4) || (count == 6) || (count == 7) || (count == 8) || (count == 9))
+                valid = dateBirth.substring(count, count + 1).matches("[0-9]");
+            if ((count == 2) || (count == 5))
+                valid = dateBirth.substring(count, count + 1).matches("/");
             count++;
         }
         return valid;
     }
+
+    void update (){
+        String JsonString =  "{ \"username\":\""+username+"\",\"password\":\""+password+"\",\"FirstName\":\""+firstName+"\",\"LastName\":\""+lastName+"\",\"Address1\":\""+address1+"\",\"Address2\":\""+address2+"\",\"City\":\""+city+"\",\"State\":\""+state+"\",\"ZipCode\":\""+zipCode+"\",\"Phone\":\""+phone+"\",\"Email\":\""+email+"\",\"DriverLicense\":\""+driverLicense+"\",\"DateBirth\":\""+dateBirth+"\",\"SSN\":\""+ssn+"\"}";
+        Log.d("Json","-----"+JsonString);
+        try {
+            final JSONObject jsonBody = new JSONObject(JsonString);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    String makeJsonStr(){
+        String res="";
+
+        return  res;
+    }
+
 }

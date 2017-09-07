@@ -217,7 +217,7 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
                     android:inputType="date"
-                    android:text="1/1/1970"
+                    android:text="10/10/1970"
                     android:textSize="14sp" />
 
                 <TextView
