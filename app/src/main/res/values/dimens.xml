@@ -17,6 +17,6 @@
     <integer name="emailLentgh">20</integer >
     <integer name="driverLicenseLentgh">10</integer >
     <integer name="dateBirthLentgh">10</integer >
-    <integer name="ssnLentgh">11</integer >
+    <integer name="ssnLentgh">9</integer >
 
 </resources>

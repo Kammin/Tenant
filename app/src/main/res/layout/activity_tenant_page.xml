@@ -131,7 +131,6 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:inputType="textPersonName"
                     android:text="2154 W Broadway Str"
                     android:textSize="14sp" />
 
@@ -160,7 +159,6 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:inputType="textPersonName"
                     android:text="123"
                     android:textSize="14sp" />
 
@@ -190,7 +188,6 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:inputType="textPersonName"
                     android:text="Chicago"
                     android:textSize="14sp" />
 
@@ -219,7 +216,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:inputType="textPersonName"
+                    android:inputType="date"
                     android:text="1/1/1970"
                     android:textSize="14sp" />
 
@@ -248,7 +245,6 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:inputType="textPersonName"
                     android:text="T1234567890"
                     android:textSize="14sp" />
 
@@ -277,7 +273,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:inputType="textPersonName"
+                    android:inputType="textEmailAddress"
                     android:text="stravnikov@gmail.com"
                     android:textSize="14sp" />
 
@@ -306,7 +302,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:inputType="textPersonName"
+                    android:inputType="textVisiblePassword"
                     android:text="12345"
                     android:textSize="14sp" />
 
@@ -335,7 +331,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:inputType="textPersonName"
+                    android:inputType="phone"
                     android:text="3123307777"
                     android:textSize="14sp" />
 
@@ -364,7 +360,9 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
+                    android:inputType="numberDecimal"
                     android:maxLength="11"
+                    android:text="12345678"
                     android:textSize="14sp" />
 
                 <TextView
@@ -392,7 +390,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:inputType="textPersonName"
+                    android:inputType="textCapCharacters"
                     android:text="IL"
                     android:textSize="14sp" />
 
@@ -451,7 +449,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:inputType="textPersonName"
+                    android:inputType="numberDecimal"
                     android:text="60606"
                     android:textSize="14sp" />
 
