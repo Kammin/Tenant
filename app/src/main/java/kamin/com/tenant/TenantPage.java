@@ -4,19 +4,30 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputFilter;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 
 public class TenantPage extends AppCompatActivity {
     EditText etAddress1, etAddress2, etCity, etDateBirth, etDriverLicense, etEmail, etFirstName, etLastName, etPassword, etPhone, etSSN, etState, etUsername, etZipCode;
     String username, password, firstName, lastName, address1, address2, city, state, zipCode, phone, email, driverLicense, dateBirth, ssn;
     Button btSave, btClear;
+    Gson gson;
     Context context;
 
     @Override
@@ -36,11 +47,12 @@ public class TenantPage extends AppCompatActivity {
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(checkEnter())
-                    update ();
+                if (checkEnter())
+                    update();
             }
         });
-
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gson = gsonBuilder.create();
     }
 
 
@@ -253,7 +265,7 @@ public class TenantPage extends AppCompatActivity {
     }
 
     public static boolean isValidDateBirth(String dateBirth) {
-        boolean valid=true;
+        boolean valid = true;
         int count = 0;
         while (valid && (count < dateBirth.length())) {
             if ((count == 0) || (count == 1) || (count == 3) || (count == 4) || (count == 6) || (count == 7) || (count == 8) || (count == 9))
@@ -265,23 +277,49 @@ public class TenantPage extends AppCompatActivity {
         return valid;
     }
 
-    void update (){
-        String JsonString =  "{ \"username\":\""+username+"\",\"password\":\""+password+"\",\"FirstName\":\""+firstName+"\",\"LastName\":\""+lastName+"\",\"Address1\":\""+address1+"\",\"Address2\":\""+address2+"\",\"City\":\""+city+"\",\"State\":\""+state+"\",\"ZipCode\":\""+zipCode+"\",\"Phone\":\""+phone+"\",\"Email\":\""+email+"\",\"DriverLicense\":\""+driverLicense+"\",\"DateBirth\":\""+dateBirth+"\",\"SSN\":\""+ssn+"\"}";
-        Log.d("Json","-----"+JsonString);
+    void update() {
+        JSONObject jsonBody = new JSONObject();
+        final String JsonString = "{ \"username\":\"" + username + "\",\"password\":\"" + password + "\",\"FirstName\":\"" + firstName + "\",\"LastName\":\"" + lastName + "\",\"Address1\":\"" + address1 + "\",\"Address2\":\"" + address2 + "\",\"City\":\"" + city + "\",\"State\":\"" + state + "\",\"ZipCode\":\"" + zipCode + "\",\"Phone\":\"" + phone + "\",\"Email\":\"" + email + "\",\"DriverLicense\":\"" + driverLicense + "\",\"DateBirth\":\"" + dateBirth + "\",\"SSN\":\"" + ssn + "\"}";
         try {
-            final JSONObject jsonBody = new JSONObject(JsonString);
-
+            jsonBody = new JSONObject(JsonString);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
-    }
-
-    String makeJsonStr(){
-        String res="";
-
-        return  res;
+        JsonObjectRequest request_json = new JsonObjectRequest(Request.Method.PUT,
+                URLs.update, jsonBody,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Tenant ten = gson.fromJson(response.toString(), Tenant.class);
+                        Toast.makeText(getApplicationContext(),"Data saved",Toast.LENGTH_SHORT).show();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.e("Error: ", error.getMessage());
+            }
+        }) {
+            @Override
+            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+                if(response.statusCode!=200)
+                    Toast.makeText(getApplicationContext(),"Network Response Code"+response.statusCode,Toast.LENGTH_LONG).show();
+                return super.parseNetworkResponse(response);
+            }
+            @Override
+            public byte[] getBody() {
+                try {
+                    return JsonString.getBytes("utf-8");
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", JsonString, "utf-8");
+                    return null;
+                }
+            }
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+        };
+        VolleySingleton.getInstance(this).addToRequestQueue(request_json);
     }
 
 }
