@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -71,9 +70,10 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
                     android:focusedByDefault="false"
-                    android:inputType="textPersonName"
-                    android:text="Serge"
+                    android:inputType="textPersonName|textCapWords"
+                    android:text=""
                     android:textSize="14sp" />
+                Serge
 
                 <TextView
                     android:id="@+id/tvLastName"
@@ -101,95 +101,10 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:inputType="textPersonName"
-                    android:text="Travnikov"
+                    android:inputType="textPersonName|textCapWords"
+                    android:text=""
                     android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tvAddress1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@android:color/transparent"
-
-                    android:text="Address1"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/etAddress1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@color/colorWhite"
-                    android:text="2154 W Broadway Str"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tvAddress2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@android:color/transparent"
-                    android:text="Address2"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/etAddress2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@color/colorWhite"
-                    android:text="123"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tvCity"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@android:color/transparent"
-
-                    android:text="City"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/etCity"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@color/colorWhite"
-                    android:text="Chicago"
-                    android:textSize="14sp" />
+                Travnikov
 
                 <TextView
                     android:id="@+id/tvDateBirth"
@@ -218,92 +133,6 @@
                     android:background="@color/colorWhite"
                     android:inputType="date"
                     android:text="10/10/1970"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tvDriverLicense"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@android:color/transparent"
-                    android:text="DriverLicense"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/etDriverLicense"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@color/colorWhite"
-                    android:text="T1234567890"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tvEmail"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@android:color/transparent"
-                    android:text="Email"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/etEmail"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@color/colorWhite"
-                    android:inputType="textEmailAddress"
-                    android:text="stravnikov@gmail.com"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tvPassword"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@android:color/transparent"
-                    android:text="Password"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/etPassword"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@color/colorWhite"
-                    android:inputType="textVisiblePassword"
-                    android:text="12345"
                     android:textSize="14sp" />
 
                 <TextView
@@ -366,7 +195,7 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/tvState"
+                    android:id="@+id/tvDriverLicense"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -376,11 +205,11 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@android:color/transparent"
-                    android:text="State"
+                    android:text="DriverLicense"
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/etState"
+                    android:id="@+id/etDriverLicense"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -390,10 +219,37 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:inputType="textCapCharacters"
-                    android:text="IL"
+                    android:text="T1234567890"
                     android:textSize="14sp" />
 
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="Email"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textEmailAddress"
+                    android:text="stravnikov@gmail.com"
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tvUsername"
@@ -422,6 +278,151 @@
                     android:background="@color/colorWhite"
                     android:inputType="textPersonName"
                     android:text="travkin"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="Password"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textVisiblePassword"
+                    android:text="12345"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvCity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+
+                    android:text="City"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etCity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:text="Chicago"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvAddress1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+
+                    android:text="Address1"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etAddress1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:text="2154 W Broadway Str"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvAddress2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="Address2"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etAddress2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:text="123"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:id="@+id/tvState"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@android:color/transparent"
+                    android:text="State"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/etState"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill_horizontal"
+                    android:layout_marginBottom="@dimen/text_vertical_margin"
+                    android:layout_marginLeft="@dimen/text_horizontal_margin"
+                    android:layout_marginRight="@dimen/text_horizontal_margin"
+                    android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:background="@color/colorWhite"
+                    android:inputType="textCapCharacters"
+                    android:text="IL"
                     android:textSize="14sp" />
 
                 <TextView

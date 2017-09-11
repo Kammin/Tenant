@@ -4,10 +4,10 @@
     <dimen name="grid_margin">10dp</dimen>
     <dimen name="text_vertical_margin">5dp</dimen>
 
-    <integer  name="usernameLentgh">10</integer >
-    <integer name="passwordLentgh">10</integer >
-    <integer name="firstNameLentgh">15</integer >
-    <integer name="lastNameLentgh">15</integer >
+    <integer  name="usernameLentgh">50</integer >
+    <integer name="passwordLentgh">8</integer >
+    <integer name="firstNameLentgh">50</integer >
+    <integer name="lastNameLentgh">50</integer >
     <integer name="address1Lentgh">20</integer >
     <integer name="address2Lentgh">30</integer >
     <integer name="cityLentgh">15</integer >

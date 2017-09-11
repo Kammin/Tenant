@@ -3,7 +3,10 @@ package kamin.com.tenant;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.text.InputFilter;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,6 +56,7 @@ public class TenantPage extends AppCompatActivity {
         });
         GsonBuilder gsonBuilder = new GsonBuilder();
         gson = gsonBuilder.create();
+        setInputListeners();
     }
 
 
@@ -277,6 +281,8 @@ public class TenantPage extends AppCompatActivity {
         return valid;
     }
 
+
+
     void update() {
         JSONObject jsonBody = new JSONObject();
         final String JsonString = "{ \"username\":\"" + username + "\",\"password\":\"" + password + "\",\"FirstName\":\"" + firstName + "\",\"LastName\":\"" + lastName + "\",\"Address1\":\"" + address1 + "\",\"Address2\":\"" + address2 + "\",\"City\":\"" + city + "\",\"State\":\"" + state + "\",\"ZipCode\":\"" + zipCode + "\",\"Phone\":\"" + phone + "\",\"Email\":\"" + email + "\",\"DriverLicense\":\"" + driverLicense + "\",\"DateBirth\":\"" + dateBirth + "\",\"SSN\":\"" + ssn + "\"}";
@@ -321,5 +327,38 @@ public class TenantPage extends AppCompatActivity {
         };
         VolleySingleton.getInstance(this).addToRequestQueue(request_json);
     }
+
+    void setInputListeners(){
+        etDateBirth.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus) {
+                    Toast.makeText(getApplicationContext(), "Got the focus", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Lost the focus", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+    etDateBirth.addTextChangedListener(new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            Log.d("TextWatcher before", charSequence+"  i "+i +" i1 "+i1 +" i2 "+i2);
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            Log.d("TextWatcher Changed", charSequence+"  i "+i +" i1 "+i1 +" i2 "+i2);
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            Log.d("TextWatcher after", editable.toString());
+        }
+    });
+
+    }
+
 
 }
