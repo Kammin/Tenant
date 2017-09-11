@@ -1,13 +1,13 @@
 package kamin.com.tenant;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
+import android.support.v4.app.FragmentActivity;
 import android.text.InputFilter;
-import android.text.TextWatcher;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,7 +26,7 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 
-public class TenantPage extends AppCompatActivity {
+public class TenantPage extends FragmentActivity {
     EditText etAddress1, etAddress2, etCity, etDateBirth, etDriverLicense, etEmail, etFirstName, etLastName, etPassword, etPhone, etSSN, etState, etUsername, etZipCode;
     String username, password, firstName, lastName, address1, address2, city, state, zipCode, phone, email, driverLicense, dateBirth, ssn;
     Button btSave, btClear;
@@ -56,9 +56,20 @@ public class TenantPage extends AppCompatActivity {
         });
         GsonBuilder gsonBuilder = new GsonBuilder();
         gson = gsonBuilder.create();
-        setInputListeners();
+        addListeners();
     }
 
+    private void addListeners() {
+        etDateBirth.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(b){
+                    android.support.v4.app.DialogFragment newFragment = new TimePickerFragment();
+                    newFragment.show(getSupportFragmentManager(), "timePicker");
+                }
+            }
+        });
+    }
 
     void clear() {
         etAddress1.setText("");
@@ -281,10 +292,17 @@ public class TenantPage extends AppCompatActivity {
         return valid;
     }
 
-
-
     void update() {
         JSONObject jsonBody = new JSONObject();
+
+        Dialog dialogTransparent = new Dialog(this, android.R.style.Theme_Black);
+        View view = LayoutInflater.from(this).inflate(
+                R.layout.remove_border, null);
+        dialogTransparent.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogTransparent.getWindow().setBackgroundDrawableResource(
+                R.color.transparent);
+        dialogTransparent.setContentView(view);
+
         final String JsonString = "{ \"username\":\"" + username + "\",\"password\":\"" + password + "\",\"FirstName\":\"" + firstName + "\",\"LastName\":\"" + lastName + "\",\"Address1\":\"" + address1 + "\",\"Address2\":\"" + address2 + "\",\"City\":\"" + city + "\",\"State\":\"" + state + "\",\"ZipCode\":\"" + zipCode + "\",\"Phone\":\"" + phone + "\",\"Email\":\"" + email + "\",\"DriverLicense\":\"" + driverLicense + "\",\"DateBirth\":\"" + dateBirth + "\",\"SSN\":\"" + ssn + "\"}";
         try {
             jsonBody = new JSONObject(JsonString);
@@ -327,38 +345,5 @@ public class TenantPage extends AppCompatActivity {
         };
         VolleySingleton.getInstance(this).addToRequestQueue(request_json);
     }
-
-    void setInputListeners(){
-        etDateBirth.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (hasFocus) {
-                    Toast.makeText(getApplicationContext(), "Got the focus", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Lost the focus", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
-    etDateBirth.addTextChangedListener(new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            Log.d("TextWatcher before", charSequence+"  i "+i +" i1 "+i1 +" i2 "+i2);
-        }
-
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            Log.d("TextWatcher Changed", charSequence+"  i "+i +" i1 "+i1 +" i2 "+i2);
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable editable) {
-            Log.d("TextWatcher after", editable.toString());
-        }
-    });
-
-    }
-
 
 }
