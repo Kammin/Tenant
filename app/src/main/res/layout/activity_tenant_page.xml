@@ -22,16 +22,6 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <DatePicker
-                android:id="@+id/datePicker"
-                android:layout_width="254dp"
-                android:layout_height="257dp"
-                android:calendarViewShown="false"
-                android:datePickerMode="spinner"
-                android:spinnersShown="true"
-
-                />
-
             <TextView
                 android:id="@+id/tvApplicant"
                 android:layout_width="wrap_content"
@@ -141,6 +131,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
+                    android:editable="true"
                     android:inputType="date"
                     android:text="10/10/1970"
                     android:textSize="14sp" />

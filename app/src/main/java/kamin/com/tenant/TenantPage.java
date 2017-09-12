@@ -27,7 +27,7 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 
 public class TenantPage extends FragmentActivity {
-    EditText etAddress1, etAddress2, etCity, etDateBirth, etDriverLicense, etEmail, etFirstName, etLastName, etPassword, etPhone, etSSN, etState, etUsername, etZipCode;
+    public EditText etAddress1, etAddress2, etCity, etDateBirth, etDriverLicense, etEmail, etFirstName, etLastName, etPassword, etPhone, etSSN, etState, etUsername, etZipCode;
     String username, password, firstName, lastName, address1, address2, city, state, zipCode, phone, email, driverLicense, dateBirth, ssn;
     Button btSave, btClear;
     Gson gson;
@@ -60,15 +60,15 @@ public class TenantPage extends FragmentActivity {
     }
 
     private void addListeners() {
-        etDateBirth.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        etDateBirth.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onFocusChange(View view, boolean b) {
-                if(b){
-                    android.support.v4.app.DialogFragment newFragment = new TimePickerFragment();
+            public void onClick(View view) {
+                    final DatePickerFragment newFragment = new DatePickerFragment();
                     newFragment.show(getSupportFragmentManager(), "timePicker");
-                }
             }
         });
+
+
     }
 
     void clear() {
@@ -117,6 +117,7 @@ public class TenantPage extends FragmentActivity {
         etUsername.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getResources().getInteger(R.integer.usernameLentgh))});
         etZipCode = (EditText) findViewById(R.id.etZipCode);
         etZipCode.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getResources().getInteger(R.integer.zipCodeLentgh))});
+        etDateBirth.setKeyListener(null);
     }
 
     boolean checkEnter() {
@@ -299,8 +300,7 @@ public class TenantPage extends FragmentActivity {
         View view = LayoutInflater.from(this).inflate(
                 R.layout.remove_border, null);
         dialogTransparent.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogTransparent.getWindow().setBackgroundDrawableResource(
-                R.color.transparent);
+        dialogTransparent.getWindow().setBackgroundDrawableResource(R.color.transparent);
         dialogTransparent.setContentView(view);
 
         final String JsonString = "{ \"username\":\"" + username + "\",\"password\":\"" + password + "\",\"FirstName\":\"" + firstName + "\",\"LastName\":\"" + lastName + "\",\"Address1\":\"" + address1 + "\",\"Address2\":\"" + address2 + "\",\"City\":\"" + city + "\",\"State\":\"" + state + "\",\"ZipCode\":\"" + zipCode + "\",\"Phone\":\"" + phone + "\",\"Email\":\"" + email + "\",\"DriverLicense\":\"" + driverLicense + "\",\"DateBirth\":\"" + dateBirth + "\",\"SSN\":\"" + ssn + "\"}";
