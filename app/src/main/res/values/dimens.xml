@@ -5,17 +5,18 @@
     <dimen name="text_vertical_margin">5dp</dimen>
 
     <integer  name="usernameLentgh">50</integer >
-    <integer name="passwordLentgh">8</integer >
-    <integer name="firstNameLentgh">50</integer >
-    <integer name="lastNameLentgh">50</integer >
-    <integer name="address1Lentgh">20</integer >
-    <integer name="address2Lentgh">30</integer >
-    <integer name="cityLentgh">15</integer >
+    <integer name="passwordMinLentgh">8</integer >
+    <integer name="passwordMaxLentgh">50</integer >
+    <integer name="firstNameLentgh">200</integer >
+    <integer name="lastNameLentgh">200</integer >
+    <integer name="address1Lentgh">256</integer >
+    <integer name="address2Lentgh">256</integer >
+    <integer name="cityLentgh">50</integer >
     <integer name="stateLentgh">2</integer >
-    <integer name="zipCodeLentgh">6</integer >
+    <integer name="zipCodeLentgh">5</integer >
     <integer name="phoneLentgh">10</integer >
-    <integer name="emailLentgh">20</integer >
-    <integer name="driverLicenseLentgh">10</integer >
+    <integer name="emailLentgh">256</integer >
+    <integer name="driverLicenseLentgh">20</integer >
     <integer name="dateBirthLentgh">10</integer >
     <integer name="ssnLentgh">9</integer >
 

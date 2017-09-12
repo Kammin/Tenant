@@ -28,6 +28,8 @@ public class DatePickerFragment extends DialogFragment
         final TenantPage tenantPage = (TenantPage) getActivity();
         View v = getActivity().getLayoutInflater().inflate(R.layout.date_picker, null);
         final DatePicker picker = (DatePicker) v.findViewById(R.id.dialog_date_datePicker);
+        picker.setMinDate(System.currentTimeMillis()-6151680000000l);
+        picker.setMaxDate(System.currentTimeMillis());
         picker.updateDate(year,month,day);
         v.findViewById(R.id.btOk).setOnClickListener(new View.OnClickListener() {
             @Override

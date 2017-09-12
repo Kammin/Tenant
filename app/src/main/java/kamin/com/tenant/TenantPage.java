@@ -65,30 +65,29 @@ public class TenantPage extends FragmentActivity {
         etDateBirth.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                if(b){
+                if (b) {
                     Bundle bundle = new Bundle();
-                    Log.d("DateBirth","on focus");
+                    Log.d("DateBirth", "on focus");
                     String d = etDateBirth.getText().toString();
                     String[] mmddyyyy = d.split("/");
-                    if(mmddyyyy.length==3)
-                    for(int i=0; i < mmddyyyy.length; i++){
-                        Log.d("DateBirth",mmddyyyy[i]);
-                        int ix = Integer.valueOf(mmddyyyy[i]);
-                        if((ix>0)&&(i==0))
-                            bundle.putInt("month",ix);
-                        if((ix>0)&&(i==1))
-                            bundle.putInt("day",ix);
-                        if((ix>0)&&(i==2))
-                            bundle.putInt("year",ix);
-                    }
+                    if (mmddyyyy.length == 3)
+                        for (int i = 0; i < mmddyyyy.length; i++) {
+                            Log.d("DateBirth", mmddyyyy[i]);
+                            int ix = Integer.valueOf(mmddyyyy[i]);
+                            if ((ix > 0) && (i == 0))
+                                bundle.putInt("month", ix - 1);
+                            if ((ix > 0) && (i == 1))
+                                bundle.putInt("day", ix);
+                            if ((ix > 0) && (i == 2))
+                                bundle.putInt("year", ix);
+                        }
                     final DatePickerFragment newFragment = new DatePickerFragment();
                     newFragment.setArguments(bundle);
-                    newFragment.setStyle(DialogFragment.STYLE_NORMAL,R.style.CustomDialog);
+                    newFragment.setStyle(DialogFragment.STYLE_NORMAL, R.style.CustomDialog);
                     newFragment.show(getSupportFragmentManager(), "timePicker");
                 }
             }
         });
-
 
 
     }
@@ -128,7 +127,7 @@ public class TenantPage extends FragmentActivity {
         etLastName = (EditText) findViewById(R.id.etLastName);
         etLastName.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getResources().getInteger(R.integer.lastNameLentgh))});
         etPassword = (EditText) findViewById(R.id.etPassword);
-        etPassword.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getResources().getInteger(R.integer.passwordLentgh))});
+        etPassword.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getResources().getInteger(R.integer.passwordMaxLentgh))});
         etPhone = (EditText) findViewById(R.id.etPhone);
         etPhone.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getResources().getInteger(R.integer.phoneLentgh))});
         etSSN = (EditText) findViewById(R.id.etSSN);
@@ -165,22 +164,13 @@ public class TenantPage extends FragmentActivity {
     boolean adress1() {
         address1 = etAddress1.getText().toString();
         if (address1.length() != 0)
-            return adress2();
+            return city();
         else {
             Toast.makeText(this, R.string.Address1_ERROR, Toast.LENGTH_SHORT).show();
             return false;
         }
     }
 
-    boolean adress2() {
-        address2 = etAddress2.getText().toString();
-        if (address2.length() != 0)
-            return city();
-        else {
-            Toast.makeText(this, R.string.Address2_ERROR, Toast.LENGTH_SHORT).show();
-            return false;
-        }
-    }
 
     boolean city() {
         city = etCity.getText().toString();
@@ -196,7 +186,7 @@ public class TenantPage extends FragmentActivity {
         dateBirth = etDateBirth.getText().toString();
         if (dateBirth.length() != 0)
             if (isValidDateBirth(dateBirth))
-                return driverLicense();
+                return email();
             else {
                 Toast.makeText(this, R.string.DateBirth_ERROR2, Toast.LENGTH_SHORT).show();
                 return false;
@@ -207,15 +197,6 @@ public class TenantPage extends FragmentActivity {
         }
     }
 
-    boolean driverLicense() {
-        driverLicense = etDriverLicense.getText().toString();
-        if (driverLicense.length() != 0)
-            return email();
-        else {
-            Toast.makeText(this, R.string.DriverLicense_ERROR, Toast.LENGTH_SHORT).show();
-            return false;
-        }
-    }
 
     boolean email() {
         email = etEmail.getText().toString();
@@ -235,7 +216,13 @@ public class TenantPage extends FragmentActivity {
     boolean pass() {
         password = etPassword.getText().toString();
         if (password.length() != 0)
-            return phone();
+            if (password.length() >= getResources().getInteger(R.integer.passwordMinLentgh))
+                return phone();
+            else {
+                Log.d("pass", "" + password.length());
+                Toast.makeText(this, R.string.Password_minLength_ERROR, Toast.LENGTH_SHORT).show();
+                return false;
+            }
         else {
             Toast.makeText(this, R.string.Password_ERROR, Toast.LENGTH_SHORT).show();
             return false;
@@ -245,7 +232,12 @@ public class TenantPage extends FragmentActivity {
     boolean phone() {
         phone = etPhone.getText().toString();
         if (phone.length() != 0)
-            return ssn();
+            if (phone.length() == 10)
+                return ssn();
+            else {
+                Toast.makeText(this, R.string.Phone_Length_ERROR, Toast.LENGTH_SHORT).show();
+                return false;
+            }
         else {
             Toast.makeText(this, R.string.Phone_ERROR, Toast.LENGTH_SHORT).show();
             return false;
@@ -255,7 +247,12 @@ public class TenantPage extends FragmentActivity {
     boolean ssn() {
         ssn = etSSN.getText().toString();
         if (ssn.length() != 0)
-            return state();
+            if (ssn.length() == 9)
+                return state();
+            else {
+                Toast.makeText(this, R.string.SSN_minLength_ERROR, Toast.LENGTH_SHORT).show();
+                return false;
+            }
         else {
             Toast.makeText(this, R.string.SSN_ERROR, Toast.LENGTH_SHORT).show();
             return false;
@@ -304,14 +301,26 @@ public class TenantPage extends FragmentActivity {
 
     public static boolean isValidDateBirth(String dateBirth) {
         boolean valid = true;
-        int count = 0;
-        while (valid && (count < dateBirth.length())) {
-            if ((count == 0) || (count == 1) || (count == 3) || (count == 4) || (count == 6) || (count == 7) || (count == 8) || (count == 9))
-                valid = dateBirth.substring(count, count + 1).matches("[0-9]");
-            if ((count == 2) || (count == 5))
-                valid = dateBirth.substring(count, count + 1).matches("/");
-            count++;
-        }
+
+        String[] mmddyyyy = dateBirth.split("/");
+        if (mmddyyyy.length == 3)
+            for (int i = 0; i < mmddyyyy.length; i++) {
+                int ix = Integer.valueOf(mmddyyyy[i]);
+                if (i == 0) {
+                    if ((ix < 1) || (ix > 12))
+                        valid = false;
+                }
+                if (i == 1) {
+                    if ((ix < 1) || (ix > 31))
+                        valid = false;
+                }
+                if (i == 2) {
+                    if (ix < 1800)
+                        valid = false;
+                }
+            }
+        else
+            valid = false;
         return valid;
     }
 
@@ -337,7 +346,7 @@ public class TenantPage extends FragmentActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Tenant ten = gson.fromJson(response.toString(), Tenant.class);
-                        Toast.makeText(getApplicationContext(),"Data saved",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Data saved", Toast.LENGTH_SHORT).show();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -347,10 +356,11 @@ public class TenantPage extends FragmentActivity {
         }) {
             @Override
             protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
-                if(response.statusCode!=200)
-                    Toast.makeText(getApplicationContext(),"Network Response Code"+response.statusCode,Toast.LENGTH_LONG).show();
+                if (response.statusCode != 200)
+                    Toast.makeText(getApplicationContext(), "Network Response Code" + response.statusCode, Toast.LENGTH_LONG).show();
                 return super.parseNetworkResponse(response);
             }
+
             @Override
             public byte[] getBody() {
                 try {
@@ -360,6 +370,7 @@ public class TenantPage extends FragmentActivity {
                     return null;
                 }
             }
+
             @Override
             public String getBodyContentType() {
                 return "application/json; charset=utf-8";

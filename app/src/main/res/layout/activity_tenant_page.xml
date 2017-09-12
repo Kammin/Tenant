@@ -70,8 +70,8 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
                     android:focusedByDefault="false"
-                    android:inputType="textPersonName|textCapWords"
-                    android:text=""
+                    android:inputType="textPersonName|textCapWords|textAutoComplete|textAutoCorrect"
+                    android:text="First"
                     android:textSize="14sp" />
                 Serge
 
@@ -101,8 +101,8 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:inputType="textPersonName|textCapWords"
-                    android:text=""
+                    android:inputType="textPersonName|textCapWords|textAutoComplete|textAutoCorrect"
+                    android:text="Last"
                     android:textSize="14sp" />
                 Travnikov
 
@@ -191,7 +191,7 @@
                     android:background="@color/colorWhite"
                     android:inputType="numberDecimal"
                     android:maxLength="11"
-                    android:text="12345678"
+                    android:text="123456789"
                     android:textSize="14sp" />
 
                 <TextView
@@ -276,7 +276,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:inputType="textPersonName"
+                    android:inputType="textPersonName|textAutoComplete|textAutoCorrect"
                     android:text="travkin"
                     android:textSize="14sp" />
 
@@ -306,7 +306,7 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
                     android:inputType="textVisiblePassword"
-                    android:text="12345"
+                    android:text="12345678"
                     android:textSize="14sp" />
 
                 <TextView
@@ -334,6 +334,7 @@
                     android:layout_marginLeft="@dimen/text_horizontal_margin"
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
+                    android:inputType="textCapWords|textAutoComplete|textAutoCorrect"
                     android:background="@color/colorWhite"
                     android:text="Chicago"
                     android:textSize="14sp" />
@@ -364,6 +365,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
+                    android:inputType="textCapWords|textAutoComplete|textAutoCorrect"
                     android:text="2154 W Broadway Str"
                     android:textSize="14sp" />
 
@@ -392,6 +394,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
+                    android:inputType="textCapWords|textAutoComplete|textAutoCorrect"
                     android:text="123"
                     android:textSize="14sp" />
 
@@ -407,6 +410,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@android:color/transparent"
+                    android:inputType="textCapCharacters"
                     android:text="State"
                     android:textSize="14sp" />
 

@@ -11,8 +11,11 @@
     <string name="Email_ERROR2">The email is not valid!</string>
     <string name="DateBirth_ERROR2">Date birthday is not valid! Change format to dd/mm/yyyy</string>
     <string name="Password_ERROR">Password cannot be empty!</string>
+    <string name="Password_minLength_ERROR">Minimum password length must be at least 8 characters!</string>
     <string name="Phone_ERROR">Phone cannot be empty!</string>
+    <string name="Phone_Length_ERROR">Phone must contain 10 digits!</string>
     <string name="SSN_ERROR">SSN cannot be empty!</string>
+    <string name="SSN_minLength_ERROR">SSN must contain 9 digits!</string>
     <string name="State_ERROR">State cannot be empty!</string>
     <string name="Username_ERROR">Username cannot be empty!</string>
     <string name="ZipCode_ERROR">ZipCode cannot be empty!</string>
