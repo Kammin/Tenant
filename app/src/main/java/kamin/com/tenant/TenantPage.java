@@ -3,8 +3,10 @@ package kamin.com.tenant;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.text.InputFilter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -60,13 +62,33 @@ public class TenantPage extends FragmentActivity {
     }
 
     private void addListeners() {
-        etDateBirth.setOnClickListener(new View.OnClickListener() {
+        etDateBirth.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void onClick(View view) {
+            public void onFocusChange(View view, boolean b) {
+                if(b){
+                    Bundle bundle = new Bundle();
+                    Log.d("DateBirth","on focus");
+                    String d = etDateBirth.getText().toString();
+                    String[] mmddyyyy = d.split("/");
+                    if(mmddyyyy.length==3)
+                    for(int i=0; i < mmddyyyy.length; i++){
+                        Log.d("DateBirth",mmddyyyy[i]);
+                        int ix = Integer.valueOf(mmddyyyy[i]);
+                        if((ix>0)&&(i==0))
+                            bundle.putInt("month",ix);
+                        if((ix>0)&&(i==1))
+                            bundle.putInt("day",ix);
+                        if((ix>0)&&(i==2))
+                            bundle.putInt("year",ix);
+                    }
                     final DatePickerFragment newFragment = new DatePickerFragment();
+                    newFragment.setArguments(bundle);
+                    newFragment.setStyle(DialogFragment.STYLE_NORMAL,R.style.CustomDialog);
                     newFragment.show(getSupportFragmentManager(), "timePicker");
+                }
             }
         });
+
 
 
     }
