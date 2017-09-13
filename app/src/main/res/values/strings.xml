@@ -19,6 +19,7 @@
     <string name="State_ERROR">State cannot be empty!</string>
     <string name="Username_ERROR">Username cannot be empty!</string>
     <string name="ZipCode_ERROR">ZipCode cannot be empty!</string>
+    <string name="Connecteon_ERROR">No internet connection!</string>
 
 
 

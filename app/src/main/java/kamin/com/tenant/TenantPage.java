@@ -2,6 +2,8 @@ package kamin.com.tenant;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
@@ -141,7 +143,19 @@ public class TenantPage extends FragmentActivity {
         etDateBirth.setKeyListener(null);
     }
 
-    boolean checkEnter() {
+    public boolean checkEnter() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if(netInfo != null && netInfo.isConnectedOrConnecting())
+            return FirstName();
+        else {
+            Toast.makeText(this, R.string.Connecteon_ERROR, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
+    boolean FirstName() {
         firstName = etFirstName.getText().toString();
         if (firstName.length() != 0)
             return lastName();
@@ -325,6 +339,8 @@ public class TenantPage extends FragmentActivity {
     }
 
     void update() {
+
+
         JSONObject jsonBody = new JSONObject();
 
         Dialog dialogTransparent = new Dialog(this, android.R.style.Theme_Black);
