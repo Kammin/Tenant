@@ -22,5 +22,10 @@
     <string name="Connecteon_ERROR">No internet connection!</string>
 
 
+    <string name="Applicant">Applicant contact information</string>
+    <string name="Loading">Loading...</string>
+    <string name="Saving">Data saving...</string>
+
+
 
 </resources>

@@ -14,8 +14,11 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -32,10 +35,13 @@ import java.io.UnsupportedEncodingException;
 
 public class TenantPage extends FragmentActivity {
     public EditText etAddress1, etAddress2, etCity, etDateBirth, etDriverLicense, etEmail, etFirstName, etLastName, etPassword, etPhone, etSSN, etState, etUsername, etZipCode;
+    TextView tvTitle;
+    ProgressBar progressBar;
     String username, password, firstName, lastName, address1, address2, city, state, zipCode, phone, email, driverLicense, dateBirth, ssn;
-    Button btSave, btClear;
+    Button btSave, btClose;
     Gson gson;
     Context context;
+    Tenant tenant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +50,11 @@ public class TenantPage extends FragmentActivity {
         context = getApplicationContext();
         initUI();
         btSave = (Button) findViewById(R.id.btSave);
-        btClear = (Button) findViewById(R.id.btClear);
-        btClear.setOnClickListener(new View.OnClickListener() {
+        btClose = (Button) findViewById(R.id.btClose);
+        btClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clear();
+                finish();
             }
         });
         btSave.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +67,10 @@ public class TenantPage extends FragmentActivity {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gson = gsonBuilder.create();
         addListeners();
+        if ((tenant == null) && (connection()))
+            LoadPersonalData("stravnikov@gmail.com");
     }
+
 
     private void addListeners() {
         etDateBirth.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -141,13 +150,26 @@ public class TenantPage extends FragmentActivity {
         etZipCode = (EditText) findViewById(R.id.etZipCode);
         etZipCode.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getResources().getInteger(R.integer.zipCodeLentgh))});
         etDateBirth.setKeyListener(null);
+        tvTitle = (TextView) findViewById(R.id.tvTitle);
+        tvTitle.setText(getResources().getString(R.string.Applicant));
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
     }
 
-    public boolean checkEnter() {
+    public boolean connection() {
         ConnectivityManager cm =
                 (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        if(netInfo != null && netInfo.isConnectedOrConnecting())
+        if (netInfo != null && netInfo.isConnectedOrConnecting())
+            return true;
+        else {
+            Toast.makeText(this, R.string.Connecteon_ERROR, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
+    public boolean checkEnter() {
+        if (connection())
             return FirstName();
         else {
             Toast.makeText(this, R.string.Connecteon_ERROR, Toast.LENGTH_SHORT).show();
@@ -178,13 +200,22 @@ public class TenantPage extends FragmentActivity {
     boolean adress1() {
         address1 = etAddress1.getText().toString();
         if (address1.length() != 0)
-            return city();
+            return adress2();
         else {
             Toast.makeText(this, R.string.Address1_ERROR, Toast.LENGTH_SHORT).show();
             return false;
         }
     }
 
+    boolean adress2() {
+        address2 = etAddress2.getText().toString();
+        return driverLicense();
+    }
+
+    boolean driverLicense() {
+        driverLicense = etDriverLicense.getText().toString();
+        return city();
+    }
 
     boolean city() {
         city = etCity.getText().toString();
@@ -337,12 +368,26 @@ public class TenantPage extends FragmentActivity {
             valid = false;
         return valid;
     }
-
+    void fillFilds(Tenant tenant){
+        etAddress1.setText(tenant.Address1);
+        etAddress2.setText(tenant.Address2);
+        etCity.setText(tenant.City);
+        etDateBirth.setText(tenant.DateBirth);
+        etDriverLicense.setText(tenant.DriverLicense);
+        etEmail.setText(tenant.Email);
+        etFirstName.setText(tenant.FirstName);
+        etLastName.setText(tenant.LastName);
+        etPassword.setText(tenant.Password);
+        etPhone.setText(tenant.Phone);
+        etSSN.setText(tenant.SSN);
+        etState.setText(tenant.State);
+        etUsername.setText(tenant.Username);
+        etZipCode.setText(tenant.ZipCode);
+    }
     void update() {
-
-
+        tvTitle.setText(getResources().getString(R.string.Saving));
+        progressBar.setVisibility(View.VISIBLE);
         JSONObject jsonBody = new JSONObject();
-
         Dialog dialogTransparent = new Dialog(this, android.R.style.Theme_Black);
         View view = LayoutInflater.from(this).inflate(
                 R.layout.remove_border, null);
@@ -361,19 +406,88 @@ public class TenantPage extends FragmentActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Tenant ten = gson.fromJson(response.toString(), Tenant.class);
+                        tenant = gson.fromJson(response.toString(), Tenant.class);
+                        fillFilds(tenant);
                         Toast.makeText(getApplicationContext(), "Data saved", Toast.LENGTH_SHORT).show();
+                        tvTitle.setText(getResources().getString(R.string.Applicant));
+                        progressBar.setVisibility(View.GONE);
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.e("Error: ", error.getMessage());
+                if(error.networkResponse.statusCode==500){
+                    Toast.makeText(getApplicationContext(), "Usermane "+username+" not exist", Toast.LENGTH_LONG).show();
+                    tvTitle.setText(getResources().getString(R.string.Applicant));
+                    progressBar.setVisibility(View.GONE);
+                }
             }
         }) {
             @Override
             protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
-                if (response.statusCode != 200)
+                if (response.statusCode != 200) {
                     Toast.makeText(getApplicationContext(), "Network Response Code" + response.statusCode, Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.GONE);
+                }
+                return super.parseNetworkResponse(response);
+            }
+
+            @Override
+            public byte[] getBody() {
+                try {
+                    return JsonString.getBytes("utf-8");
+                } catch (UnsupportedEncodingException uee) {
+                    VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", JsonString, "utf-8");
+                    progressBar.setVisibility(View.GONE);
+                    return null;
+                }
+            }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+        };
+        request_json.setRetryPolicy(new DefaultRetryPolicy(2000,2,1f));
+        VolleySingleton.getInstance(this).addToRequestQueue(request_json);
+    }
+
+    private void LoadPersonalData(String email) {
+        tvTitle.setText(getResources().getString(R.string.Loading));
+        progressBar.setVisibility(View.VISIBLE);
+        JSONObject jsonBody = new JSONObject();
+
+        final String JsonString = "{ \"Email\":\"" + email + "\"}";
+        try {
+            jsonBody = new JSONObject(JsonString);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest request_json = new JsonObjectRequest(Request.Method.PUT,
+                URLs.get, jsonBody,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        tenant = gson.fromJson(response.toString(), Tenant.class);
+                        fillFilds(tenant);
+                        tvTitle.setText(getResources().getString(R.string.Applicant));
+                        progressBar.setVisibility(View.GONE);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.e("Error: ", error.getMessage());
+                tvTitle.setText(getResources().getString(R.string.Applicant));
+                progressBar.setVisibility(View.GONE);
+            }
+        }) {
+            @Override
+            protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
+                if (response.statusCode != 200) {
+                    Toast.makeText(getApplicationContext(), "Network Response Code" + response.statusCode, Toast.LENGTH_LONG).show();
+                    tvTitle.setText(getResources().getString(R.string.Applicant));
+                    progressBar.setVisibility(View.GONE);
+                }
                 return super.parseNetworkResponse(response);
             }
 

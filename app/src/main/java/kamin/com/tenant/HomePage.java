@@ -23,6 +23,7 @@ public class HomePage extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        VolleySingleton.getInstance(this);
     }
 
 }

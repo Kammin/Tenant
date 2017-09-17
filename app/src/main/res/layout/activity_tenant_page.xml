@@ -4,8 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
     android:background="?attr/colorControlHighlight"
     tools:context="kamin.com.tenant.HomePage">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimaryDark"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="15dp"
+            android:visibility="gone"
+            android:background="@drawable/ic_arrow_back_black_24dp" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/grid_margin"
+            android:layout_marginLeft="@dimen/grid_margin"
+            android:layout_marginRight="@dimen/grid_margin"
+            android:layout_marginStart="@dimen/grid_margin"
+            android:background="@android:color/transparent"
+            android:text="Applicant contact information"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:backgroundTint="@color/colorWhite" />
+
+    </android.support.v7.widget.Toolbar>
 
 
     <ScrollView
@@ -21,17 +62,6 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvApplicant"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/text_horizontal_margin"
-                android:layout_marginRight="@dimen/text_horizontal_margin"
-                android:layout_marginTop="10dp"
-                android:background="@android:color/transparent"
-                android:text="Applicant contact information"
-                android:textSize="14sp" />
 
 
             <GridLayout
@@ -71,7 +101,6 @@
                     android:background="@color/colorWhite"
                     android:focusedByDefault="false"
                     android:inputType="textPersonName|textCapWords|textAutoComplete|textAutoCorrect"
-                    android:text="First"
                     android:textSize="14sp" />
                 Serge
 
@@ -102,7 +131,6 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
                     android:inputType="textPersonName|textCapWords|textAutoComplete|textAutoCorrect"
-                    android:text="Last"
                     android:textSize="14sp" />
                 Travnikov
 
@@ -131,7 +159,6 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:hint="mm/dd/yyyy"
                     android:inputType="date"
                     android:textSize="14sp" />
 
@@ -161,7 +188,6 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
                     android:inputType="phone"
-                    android:text="3123307777"
                     android:textSize="14sp" />
 
                 <TextView
@@ -191,7 +217,6 @@
                     android:background="@color/colorWhite"
                     android:inputType="numberDecimal"
                     android:maxLength="11"
-                    android:text="123456789"
                     android:textSize="14sp" />
 
                 <TextView
@@ -219,7 +244,6 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
-                    android:text="T1234567890"
                     android:textSize="14sp" />
 
                 <TextView
@@ -248,7 +272,6 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
                     android:inputType="textEmailAddress"
-                    android:text="stravnikov@gmail.com"
                     android:textSize="14sp" />
 
                 <TextView
@@ -277,7 +300,6 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
                     android:inputType="textPersonName|textAutoComplete|textAutoCorrect"
-                    android:text="travkin"
                     android:textSize="14sp" />
 
                 <TextView
@@ -306,7 +328,6 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
                     android:inputType="textVisiblePassword"
-                    android:text="12345678"
                     android:textSize="14sp" />
 
                 <TextView
@@ -336,7 +357,6 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:inputType="textCapWords|textAutoComplete|textAutoCorrect"
                     android:background="@color/colorWhite"
-                    android:text="Chicago"
                     android:textSize="14sp" />
 
                 <TextView
@@ -366,7 +386,6 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
                     android:inputType="textCapWords|textAutoComplete|textAutoCorrect"
-                    android:text="2154 W Broadway Str"
                     android:textSize="14sp" />
 
                 <TextView
@@ -395,7 +414,6 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
                     android:inputType="textCapWords|textAutoComplete|textAutoCorrect"
-                    android:text="123"
                     android:textSize="14sp" />
 
 
@@ -426,7 +444,6 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
                     android:inputType="textCapCharacters"
-                    android:text="IL"
                     android:textSize="14sp" />
 
                 <TextView
@@ -455,7 +472,6 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@color/colorWhite"
                     android:inputType="numberDecimal"
-                    android:text="60606"
                     android:textSize="14sp" />
 
 
@@ -475,11 +491,11 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/btClear"
+                        android:id="@+id/btClose"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.50"
-                        android:text="Clear" />
+                        android:text="Close" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -493,6 +509,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:focusedByDefault="true"
                         android:text="Save" />
                 </LinearLayout>
             </LinearLayout>
