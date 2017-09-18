@@ -85,7 +85,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@android:color/transparent"
-                    android:text="FirstName"
+                    android:text="First Name:"
                     android:textSize="14sp" />
 
                 <EditText
@@ -116,7 +116,7 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@android:color/transparent"
 
-                    android:text="LastName"
+                    android:text="Last Name:"
                     android:textSize="14sp" />
 
                 <EditText
@@ -145,7 +145,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@android:color/transparent"
-                    android:text="DateBirth"
+                    android:text="Date of Birth:"
                     android:textSize="14sp" />
 
                 <EditText
@@ -173,7 +173,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@android:color/transparent"
-                    android:text="Phone"
+                    android:text="Phone#:"
                     android:textSize="14sp" />
 
                 <EditText
@@ -201,7 +201,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@android:color/transparent"
-                    android:text="SSN"
+                    android:text="Social Security#:"
                     android:textSize="14sp" />
 
                 <EditText
@@ -230,7 +230,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@android:color/transparent"
-                    android:text="DriverLicense"
+                    android:text="Drivers License#:"
                     android:textSize="14sp" />
 
                 <EditText
@@ -257,7 +257,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@android:color/transparent"
-                    android:text="Email"
+                    android:text="Email Address:"
                     android:textSize="14sp" />
 
                 <EditText
@@ -275,62 +275,6 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/tvUsername"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@android:color/transparent"
-                    android:text="Username"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/etUsername"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@color/colorWhite"
-                    android:inputType="textPersonName|textAutoComplete|textAutoCorrect"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/tvPassword"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@android:color/transparent"
-                    android:text="Password"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/etPassword"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill_horizontal"
-                    android:layout_marginBottom="@dimen/text_vertical_margin"
-                    android:layout_marginLeft="@dimen/text_horizontal_margin"
-                    android:layout_marginRight="@dimen/text_horizontal_margin"
-                    android:layout_marginTop="@dimen/text_vertical_margin"
-                    android:background="@color/colorWhite"
-                    android:inputType="textVisiblePassword"
-                    android:textSize="14sp" />
-
-                <TextView
                     android:id="@+id/tvCity"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -342,7 +286,7 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@android:color/transparent"
 
-                    android:text="City"
+                    android:text="City:"
                     android:textSize="14sp" />
 
                 <EditText
@@ -371,7 +315,7 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@android:color/transparent"
 
-                    android:text="Address1"
+                    android:text="Street Address:"
                     android:textSize="14sp" />
 
                 <EditText
@@ -399,7 +343,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@android:color/transparent"
-                    android:text="Address2"
+                    android:text="Street Address Line 2:"
                     android:textSize="14sp" />
 
                 <EditText
@@ -429,7 +373,7 @@
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@android:color/transparent"
                     android:inputType="textCapCharacters"
-                    android:text="State"
+                    android:text="State:"
                     android:textSize="14sp" />
 
                 <EditText
@@ -457,7 +401,7 @@
                     android:layout_marginRight="@dimen/text_horizontal_margin"
                     android:layout_marginTop="@dimen/text_vertical_margin"
                     android:background="@android:color/transparent"
-                    android:text="ZipCode"
+                    android:text="ZipCode:"
                     android:textSize="14sp" />
 
                 <EditText

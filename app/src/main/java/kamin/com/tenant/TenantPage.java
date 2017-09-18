@@ -34,10 +34,10 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 
 public class TenantPage extends FragmentActivity {
-    public EditText etAddress1, etAddress2, etCity, etDateBirth, etDriverLicense, etEmail, etFirstName, etLastName, etPassword, etPhone, etSSN, etState, etUsername, etZipCode;
+    public EditText etAddress1, etAddress2, etCity, etDateBirth, etDriverLicense, etEmail, etFirstName, etLastName, etPhone, etSSN, etState, etZipCode;
     TextView tvTitle;
     ProgressBar progressBar;
-    String username, password, firstName, lastName, address1, address2, city, state, zipCode, phone, email, driverLicense, dateBirth, ssn;
+    String firstName, lastName, address1, address2, city, state, zipCode, phone, email, driverLicense, dateBirth, ssn;
     Button btSave, btClose;
     Gson gson;
     Context context;
@@ -112,11 +112,9 @@ public class TenantPage extends FragmentActivity {
         etEmail.setText("");
         etFirstName.setText("");
         etLastName.setText("");
-        etPassword.setText("");
         etPhone.setText("");
         etSSN.setText("");
         etState.setText("");
-        etUsername.setText("");
         etZipCode.setText("");
     }
 
@@ -137,16 +135,12 @@ public class TenantPage extends FragmentActivity {
         etFirstName.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getResources().getInteger(R.integer.firstNameLentgh))});
         etLastName = (EditText) findViewById(R.id.etLastName);
         etLastName.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getResources().getInteger(R.integer.lastNameLentgh))});
-        etPassword = (EditText) findViewById(R.id.etPassword);
-        etPassword.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getResources().getInteger(R.integer.passwordMaxLentgh))});
         etPhone = (EditText) findViewById(R.id.etPhone);
         etPhone.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getResources().getInteger(R.integer.phoneLentgh))});
         etSSN = (EditText) findViewById(R.id.etSSN);
         etSSN.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getResources().getInteger(R.integer.ssnLentgh))});
         etState = (EditText) findViewById(R.id.etState);
         etState.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getResources().getInteger(R.integer.stateLentgh))});
-        etUsername = (EditText) findViewById(R.id.etUsername);
-        etUsername.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getResources().getInteger(R.integer.usernameLentgh))});
         etZipCode = (EditText) findViewById(R.id.etZipCode);
         etZipCode.setFilters(new InputFilter[]{new InputFilter.LengthFilter(getResources().getInteger(R.integer.zipCodeLentgh))});
         etDateBirth.setKeyListener(null);
@@ -247,7 +241,7 @@ public class TenantPage extends FragmentActivity {
         email = etEmail.getText().toString();
         if (email.length() != 0) {
             if (isValidEmailAddress(email))
-                return pass();
+                return phone();
             else {
                 Toast.makeText(this, R.string.Email_ERROR2, Toast.LENGTH_SHORT).show();
                 return false;
@@ -258,21 +252,6 @@ public class TenantPage extends FragmentActivity {
         }
     }
 
-    boolean pass() {
-        password = etPassword.getText().toString();
-        if (password.length() != 0)
-            if (password.length() >= getResources().getInteger(R.integer.passwordMinLentgh))
-                return phone();
-            else {
-                Log.d("pass", "" + password.length());
-                Toast.makeText(this, R.string.Password_minLength_ERROR, Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        else {
-            Toast.makeText(this, R.string.Password_ERROR, Toast.LENGTH_SHORT).show();
-            return false;
-        }
-    }
 
     boolean phone() {
         phone = etPhone.getText().toString();
@@ -307,22 +286,13 @@ public class TenantPage extends FragmentActivity {
     boolean state() {
         state = etState.getText().toString();
         if (state.length() != 0)
-            return username();
+            return zipCode() ;
         else {
             Toast.makeText(this, R.string.State_ERROR, Toast.LENGTH_SHORT).show();
             return false;
         }
     }
 
-    boolean username() {
-        username = etUsername.getText().toString();
-        if (username.length() != 0)
-            return zipCode();
-        else {
-            Toast.makeText(this, R.string.Username_ERROR, Toast.LENGTH_SHORT).show();
-            return false;
-        }
-    }
 
     boolean zipCode() {
         zipCode = etZipCode.getText().toString();
@@ -377,11 +347,9 @@ public class TenantPage extends FragmentActivity {
         etEmail.setText(tenant.Email);
         etFirstName.setText(tenant.FirstName);
         etLastName.setText(tenant.LastName);
-        etPassword.setText(tenant.Password);
         etPhone.setText(tenant.Phone);
         etSSN.setText(tenant.SSN);
         etState.setText(tenant.State);
-        etUsername.setText(tenant.Username);
         etZipCode.setText(tenant.ZipCode);
     }
     void update() {
@@ -395,7 +363,7 @@ public class TenantPage extends FragmentActivity {
         dialogTransparent.getWindow().setBackgroundDrawableResource(R.color.transparent);
         dialogTransparent.setContentView(view);
 
-        final String JsonString = "{ \"username\":\"" + username + "\",\"password\":\"" + password + "\",\"FirstName\":\"" + firstName + "\",\"LastName\":\"" + lastName + "\",\"Address1\":\"" + address1 + "\",\"Address2\":\"" + address2 + "\",\"City\":\"" + city + "\",\"State\":\"" + state + "\",\"ZipCode\":\"" + zipCode + "\",\"Phone\":\"" + phone + "\",\"Email\":\"" + email + "\",\"DriverLicense\":\"" + driverLicense + "\",\"DateBirth\":\"" + dateBirth + "\",\"SSN\":\"" + ssn + "\"}";
+        final String JsonString = "{ \"username\":\"" + tenant.Username + "\",\"password\":\"" + tenant.Password + "\",\"FirstName\":\"" + firstName + "\",\"LastName\":\"" + lastName + "\",\"Address1\":\"" + address1 + "\",\"Address2\":\"" + address2 + "\",\"City\":\"" + city + "\",\"State\":\"" + state + "\",\"ZipCode\":\"" + zipCode + "\",\"Phone\":\"" + phone + "\",\"Email\":\"" + email + "\",\"DriverLicense\":\"" + driverLicense + "\",\"DateBirth\":\"" + dateBirth + "\",\"SSN\":\"" + ssn + "\"}";
         try {
             jsonBody = new JSONObject(JsonString);
         } catch (JSONException e) {
@@ -417,7 +385,6 @@ public class TenantPage extends FragmentActivity {
             public void onErrorResponse(VolleyError error) {
                 VolleyLog.e("Error: ", error.getMessage());
                 if(error.networkResponse.statusCode==500){
-                    Toast.makeText(getApplicationContext(), "Usermane "+username+" not exist", Toast.LENGTH_LONG).show();
                     tvTitle.setText(getResources().getString(R.string.Applicant));
                     progressBar.setVisibility(View.GONE);
                 }
